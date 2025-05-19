@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Breathing Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #e0f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+    }
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      background: #00bcd4;
+      border-radius: 50%;
+      transition: all 4s ease-in-out;
+    }
+
+    .text {
+      margin-top: 20px;
+      font-size: 2rem;
+      color: #006064;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="circle" id="breathCircle"></div>
+  <div class="text" id="breathText">Inhale</div>
+
+  <script>
+    const circle = document.getElementById("breathCircle");
+    const text = document.getElementById("breathText");
+
+    let isInhaling = true;
+
+    setInterval(() => {
+      if (isInhaling) {
+        circle.style.transform = "scale(2)";
+        text.textContent = "Inhale";
+      } else {
+        circle.style.transform = "scale(1)";
+        text.textContent = "Exhale";
+      }
+      isInhaling = !isInhaling;
+    }, 4000); // 4s inhale/exhale loop
+  </script>
+
+</body>
+</html>
